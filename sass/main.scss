@@ -531,6 +531,77 @@ body {
   }
 }
 
+.cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 3.5rem 0;
+  text-align: center;
+
+  h2 {
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  button {
+    font-size: 1.5rem;
+    outline: none;
+    border: none;
+    border-radius: 100px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 300;
+    background-image: linear-gradient(
+      to right,
+      $color--primary-light,
+      $color--primary-dark
+    );
+    overflow: hidden;
+    position: relative;
+    color: #fff;
+    transition: 0.2s;
+
+    .visible {
+      display: inline-block;
+      padding: 2rem 7.5rem;
+      transition: 0.2s;
+    }
+
+    .invisible {
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      top: -101%;
+      padding: 2rem 0;
+      transition: 0.2s;
+    }
+
+    &:hover {
+      background-image: linear-gradient(
+        to left,
+        $color--primary-light,
+        $color--primary-dark
+      );
+    }
+
+    &:focus {
+      animation: pulsate 1s infinite;
+    }
+
+    &:hover .visible {
+      transform: translateY(101%);
+    }
+    &:hover .invisible {
+      top: 0%;
+    }
+  }
+}
+
 .btn--inline {
   color: $color--primary;
   font-weight: 400;
